@@ -2,7 +2,7 @@
   "name": "react-ins-progress-bar",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/ins-react-progress-bar.js",
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
@@ -23,18 +23,24 @@
     "webpack-dev-server": "^3.1.8"
   },
   "dependencies": {
+    "prop-types": "^15.6.2",
     "react": "^16.5.0",
     "react-dom": "^16.5.0",
     "styled-components": "^3.4.5"
   },
   "scripts": {
-    "dev": "webpack-dev-server --process --inline --config build/webpack.dev.conf.js"
+    "dev": "webpack-dev-server --process --inline --config build/webpack.dev.conf.js",
+    "build": "webpack --config build/webpack.prod.conf.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gikey/react-ins-progress-bar.git"
   },
-  "keywords": [],
+  "keywords": [
+    "progress",
+    "react",
+    "ins-react-progressbar-bar"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {

@@ -1,28 +1,18 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import InsProgressBar from '../src/react-ins-progress-bar'
+import {InsProgressBar, insProgress} from '../src/index.js'
 
 class App  extends Component {
-    constructor() {
-        super()
-        this.state = {
-            display: false
-        }
-    }
     handleStartProgress() {
-        this.setState({
-            display: true
-        })
+        insProgress.start()
     }
     handleStopProgress() {
-        this.setState({
-            display: false
-        })
+        insProgress.finish()
     }
     render() {
         return (
             <div>
-                <InsProgressBar display={this.state.display}/>
+                <InsProgressBar/>
                 <button onClick={this.handleStartProgress.bind(this)}>show</button>
                 <button onClick={this.handleStopProgress.bind(this)}>hide</button>
             </div>
