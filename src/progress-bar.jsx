@@ -1,4 +1,4 @@
-import { ACTION } from './utils/constant'
+import { ACTION, POSITION } from './utils/constant'
 import eventManager from './utils/eventManager'
 
 let progressBar = null
@@ -11,14 +11,15 @@ function emitEvent(action, options) {
 }
 
 const insProgress = Object.assign(
-    options => eventManager.emit(ACTION.SHOW, options),
+    (options = {}) => eventManager.emit(ACTION.SHOW, options),
     {
-        start(options) {
+        start(options = {}) {
             emitEvent(ACTION.SHOW, options)
         },
-        finish(options) {
+        finish(options = {}) {
             emitEvent(ACTION.CLEAR, options)
-        }
+        },
+        POSITION
     }
 )
 

@@ -4,7 +4,9 @@ import {InsProgressBar, insProgress} from '../src/index.js'
 
 class App  extends Component {
     handleStartProgress() {
-        insProgress.start()
+        insProgress.start({
+            position: insProgress.POSITION.TOP
+        })
     }
     handleStopProgress() {
         insProgress.finish()

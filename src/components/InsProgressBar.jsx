@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import eventManager from '../utils/eventManager'
-import { ACTION } from '../utils/constant'
-import { ProgressBar } from '../style'
+import { ACTION, POSITION } from '../utils/constant'
+import { ProgressBar } from './style'
 import PropTypes from 'prop-types'
 
 class InsProgressBar extends Component {
     state = {
         display: 'none',
-        fadeOut: false
+        fadeOut: false,
+        position: POSITION.TOP
     }
     static propTypes = {
         height: PropTypes.string,
@@ -32,7 +33,8 @@ class InsProgressBar extends Component {
     show(options) {
         this.setState({
             display: 'block',
-            fadeOut: false
+            fadeOut: false,
+            position: options.position || POSITION.TOP
         })
     }
     hide(options) {
@@ -53,6 +55,7 @@ class InsProgressBar extends Component {
                    display={this.state.display}
                    fadeOut={this.state.fadeOut}
                    duration={this.props.duration}
+                   className={this.state.position}
                 />
             </div>
         )

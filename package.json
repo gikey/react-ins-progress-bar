@@ -1,8 +1,8 @@
 {
   "name": "react-ins-progress-bar",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "",
-  "main": "./dist/ins-react-progress-bar.js",
+  "main": "./dist/react-ins-progress-bar.js",
   "devDependencies": {
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
@@ -30,7 +30,8 @@
   },
   "scripts": {
     "dev": "webpack-dev-server --process --inline --config build/webpack.dev.conf.js",
-    "build": "webpack --config build/webpack.prod.conf.js"
+    "build": "webpack --config build/webpack.prod.conf.js",
+    "build:demo": "webpack --config build/webpack.demo.conf.js"
   },
   "repository": {
     "type": "git",

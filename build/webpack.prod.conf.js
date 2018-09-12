@@ -4,8 +4,8 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, '../dist'),
-        filename: 'ins-react-progress-bar.js',
-        libraryTarget: 'umd'
+        filename: 'react-ins-progress-bar.js',
+        libraryTarget: 'commonjs2'
     },
     mode: 'production',
     module: {
