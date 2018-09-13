@@ -1,18 +1,34 @@
-import { ACTION, POSITION } from './utils/constant'
+import {
+    ACTION,
+    POSITION
+} from './utils/constant'
 import eventManager from './utils/eventManager'
 
-let progressBar = null
+let progressBar = null,
+    state = 'noop',
+    cacheStartFn,
+    cacheFinishFn
 
 function emitEvent(action, options) {
-    if(progressBar !== null) {
-        return eventManager.emit(action, options)
+    if(!progressBar) {
+        if(action === ACTION.SHOW) {
+            return cacheStartFn = (options) => insProgress.start(options)
+        }
+        state = 'pending'
+        return cacheFinishFn = (options) => insProgress.finish(options)
     }
-    console.error('InsProgressBar component must be mounted first')
+    eventManager.emit(action, options)
+
+    if(state === 'pending') {
+        state = 'noop'
+        setTimeout(() => {
+            cacheFinishFn()
+        })
+    }
 }
 
 const insProgress = Object.assign(
-    (options = {}) => eventManager.emit(ACTION.SHOW, options),
-    {
+    (options = {}) => eventManager.emit(ACTION.SHOW, options), {
         start(options = {}) {
             emitEvent(ACTION.SHOW, options)
         },
@@ -24,7 +40,10 @@ const insProgress = Object.assign(
 )
 
 eventManager
-    .on(ACTION.DID_MOUNT, progressBarInstance => progressBar = progressBarInstance)
+    .on(ACTION.DID_MOUNT, progressBarInstance => {
+        progressBar = progressBarInstance
+        cacheStartFn && cacheStartFn()
+    })
     .on(ACTION.WILL_UNMOUNT, () => progressBar = null)
 
 export default insProgress

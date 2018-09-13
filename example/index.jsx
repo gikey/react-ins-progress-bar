@@ -1,25 +1,31 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
-import {InsProgressBar, insProgress} from '../src/index.js'
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import { InsProgressBar, insProgress } from "../src/index.js";
+import { Title } from "./style";
+import Switch from "./components/switch";
 
-class App  extends Component {
+class App extends Component {
+    componentWillMount() {
+        insProgress.start();
+    }
     handleStartProgress() {
-        insProgress.start({
-            position: insProgress.POSITION.TOP
-        })
+        insProgress.start();
     }
     handleStopProgress() {
-        insProgress.finish()
+        insProgress.finish();
     }
     render() {
         return (
             <div>
-                <InsProgressBar/>
-                <button onClick={this.handleStartProgress.bind(this)}>show</button>
-                <button onClick={this.handleStopProgress.bind(this)}>hide</button>
+                <InsProgressBar />
+                <Title>react-ins-progress-bar</Title>
+                <Switch
+                    handleStartProgress={this.handleStartProgress.bind(this)}
+                    handleStopProgress={this.handleStopProgress.bind(this)}
+                />
             </div>
-        )
+        );
     }
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById("root"));

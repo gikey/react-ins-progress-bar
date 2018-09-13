@@ -16,7 +16,13 @@ class InsProgressBar extends Component {
     }
     static defaultProps = {
         height: '5px',
-        delay: 300
+        delay: 500
+    }
+    componentWillMount() {
+        this.setState({
+            ...this.props,
+            ...this.state
+        })
     }
     componentDidMount() {
         eventManager
@@ -32,29 +38,31 @@ class InsProgressBar extends Component {
     }
     show(options) {
         this.setState({
+            ...options,
             display: 'block',
             fadeOut: false,
-            position: options.position || POSITION.TOP
         })
     }
     hide(options) {
         this.setState({
+            ...options,
             fadeOut: true
         })
+
         setTimeout(() => {
             this.setState({
                 display: 'none'
             })
-        }, this.props.delay)
+        }, (options.delay || this.props.delay))
     }
     render() {
         return (
             <div className="ins-progress-bar">
                <ProgressBar
-                   height={this.props.height}
+                   height={this.state.height}
                    display={this.state.display}
                    fadeOut={this.state.fadeOut}
-                   delay={this.props.delay}
+                   delay={this.state.delay}
                    className={this.state.position}
                 />
             </div>

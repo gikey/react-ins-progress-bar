@@ -29,7 +29,7 @@ export const ProgressBar = styled.div`
     background: linear-gradient(90deg, #1abc9c 15%, #2ecc71 15%, #3498db 12%, #9b59b6 32%, #34495e 35%, #f1c40f 55%, #e67e22 59%, #e74c3c 63%, #95a5a6 92%);
     background-size: 200%;
     transform-origin: left;
-    animation: ${moveGradient} 3s linear infinite, .5s ${MoveEnter} ease-in;
+    animation: ${moveGradient} 3s linear infinite, ${MoveEnter} .3s ease-in;
 
     &.top {
         top: 0;
