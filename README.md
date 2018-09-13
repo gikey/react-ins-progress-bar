@@ -48,6 +48,7 @@ The <InsProgressBar /> component can receive some properties
 * `height` progress bar height
 * `delay` progress bar fadeOut time (default 300ms) 
 * `colors` progress bar background colors
+* `position` progress bar position (top or bottom)
 
 ##### example
 
@@ -62,6 +63,7 @@ The `insProgress.start()` supports height, colors attributes in the following wa
 ```javascript
 insProgress.start({
     'height': '10px',
+    'position': insProgress.POSITION.TOP,
     'colors': ['#000', '#f00', '#fff']
 })
 insProgress.finish({
