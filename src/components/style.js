@@ -20,7 +20,7 @@ const MoveEnter = keyframes`
 
 export const ProgressBar = styled.div`
     opacity: ${props => props.fadeOut ? 0 : 1};
-    transition: opacity ${props => props.duration / 1000 }s ease-in;
+    transition: opacity ${props => props.delay / 1000 }s ease-in;
     display: ${props => props.display};
     height: ${props => props.height};
     position: fixed;
