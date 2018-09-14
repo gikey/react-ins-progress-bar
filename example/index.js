@@ -6,9 +6,7 @@ import Switch from "./components/switch";
 
 class App extends Component {
     componentWillMount() {
-        insProgress.start({
-            position: insProgress.POSITION.BOTTOM
-        });
+        insProgress.start();
     }
     handleStartProgress() {
         insProgress.start();

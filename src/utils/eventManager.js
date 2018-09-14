@@ -10,7 +10,6 @@ const eventManager = {
     emit(event, ...args) {
         if(!this.list.has(event)) return false
         this.list.get(event).forEach(callback  => setTimeout(() => callback.call(null, ...args)))
-        // this.list.get(event).forEach(callback  => callback.call(null, ...args))
         return true
     },
 
