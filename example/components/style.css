@@ -1,9 +1,17 @@
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+}
 .btn {
-    line-height: 30px;
     vertical-align: middle;
-    height: 30px;
     font-size: 25px;
-    margin-top: 40px;
+    margin: 40px auto 80px;
     font-weight: 300;
 }
 .switch {
@@ -63,14 +71,18 @@
     transition: .4s;
     border-radius: 50%;
   }
-  input:checked + .slider {
+  input[type="checkbox"]:checked + .slider {
     background-color: #2196F3;
   }
-  input:focus + .slider {
+  input[type="checkbox"]:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
   }
-  input:checked + .slider:before {
+  input[type="checkbox"]:checked + .slider:before {
     -webkit-transform: translateX(56px);
     -ms-transform: translateX(56px);
     transform: translateX(56px);
+  }
+
+  .github {
+    
   }

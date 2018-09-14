@@ -15,8 +15,10 @@ export const Title = styled.h1`
     background-clip: text;
     background-size: 200%;
     color: transparent;
-    font-size: 50px;
-    margin: 100px auto 0;
+    font-size: 60px;
+    margin: 0;
+    margin-top: -200px;
     transform-origin: left;
+    font-style: italic;
     animation: ${moveGradient} 8s linear infinite;
 `

@@ -2,7 +2,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-    entry: './example/index.jsx',
+    entry: './example/index.js',
     mode: 'development',
     module: {
         rules: [{
@@ -19,6 +19,14 @@ module.exports = {
             use: {
                 loader: "babel-loader"
             }
+        }, {
+            test: /\.(png|gif|jpe?g|svg)$/,
+            use: [{
+                loader: 'url-loader',
+                options: {
+                    limit: 8192
+                }
+            }]
         }]
     },
     resolve: {

@@ -12,17 +12,21 @@ class InsProgressBar extends Component {
     }
     static propTypes = {
         height: PropTypes.string,
-        delay: PropTypes.number
+        delay: PropTypes.number,
+        position: PropTypes.string
     }
     static defaultProps = {
         height: '5px',
-        delay: 500
+        delay: 500,
+        position: POSITION.TOP
     }
     componentWillMount() {
-        this.setState({
+        this.initState = {
             ...this.props,
             ...this.state
-        })
+        }
+        delete this.initState.display
+        this.setState(this.initState)
     }
     componentDidMount() {
         eventManager
@@ -38,6 +42,7 @@ class InsProgressBar extends Component {
     }
     show(options) {
         this.setState({
+            ...this.initState,
             ...options,
             display: 'block',
             fadeOut: false,
@@ -45,6 +50,7 @@ class InsProgressBar extends Component {
     }
     hide(options) {
         this.setState({
+            ...this.state,
             ...options,
             fadeOut: true
         })

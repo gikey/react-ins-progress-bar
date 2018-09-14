@@ -12,10 +12,10 @@ let progressBar = null,
 function emitEvent(action, options) {
     if(!progressBar) {
         if(action === ACTION.SHOW) {
-            return cacheStartFn = (options) => insProgress.start(options)
+            return cacheStartFn = (options =>  () => insProgress.start(options))(options)
         }
         state = 'pending'
-        return cacheFinishFn = (options) => insProgress.finish(options)
+        return cacheFinishFn = (options =>  () => insProgress.finish(options))(options)
     }
     eventManager.emit(action, options)
 
