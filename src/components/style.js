@@ -24,6 +24,7 @@ export const ProgressBar = styled.div`
     display: ${props => props.display};
     height: ${props => props.height};
     position: fixed;
+    z-index: 99;
     left: 0;
     right: 0;
     background: linear-gradient(90deg, #1abc9c 15%, #2ecc71 15%, #3498db 12%, #9b59b6 32%, #34495e 35%, #f1c40f 55%, #e67e22 59%, #e74c3c 63%, #95a5a6 92%);
