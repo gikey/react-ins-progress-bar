@@ -32,7 +32,8 @@
   "scripts": {
     "dev": "webpack-dev-server --process --inline --config build/webpack.dev.conf.js",
     "build": "webpack --config build/webpack.prod.conf.js",
-    "build:demo": "webpack --config build/webpack.demo.conf.js"
+    "build:demo": "webpack --config build/webpack.demo.conf.js",
+    "deploy": "sh ./deploy.sh"
   },
   "repository": {
     "type": "git",
