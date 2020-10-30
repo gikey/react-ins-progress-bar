@@ -1,10 +1,17 @@
 {
   "name": "react-ins-progress-bar",
   "version": "2.0.0",
-  "author": "",
+  "author": "gikey",
   "license": "ISC",
-  "description": "",
+  "description": "An instagram style progress bar ",
   "main": "./dist/react-ins-progress-bar.js",
+  "scripts": {
+    "dev": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack-dev-server --config build/webpack.dev.config.ts",
+    "build:lib": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack --config build/webpack.prod.config.ts",
+    "build:demo": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack --config build/webpack.demo.config.ts",
+    "prepublish": "npm run build:lib",
+    "deploy": "sh ./deploy.sh"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gikey/react-ins-progress-bar.git"
@@ -12,7 +19,8 @@
   "keywords": [
     "progress",
     "react",
-    "ins-react-progressbar-bar"
+    "ins-react-progressbar-bar",
+    "instagram"
   ],
   "bugs": {
     "url": "https://github.com/gikey/react-ins-progress-bar/issues"
@@ -22,6 +30,11 @@
     "types"
   ],
   "homepage": "https://github.com/gikey/react-ins-progress-bar#readme",
+  "type": "module",
+  "dependencies": {
+    "react": "^16.14.0",
+    "styled-components": "^3.4.5"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
@@ -56,19 +69,7 @@
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
-    "webpack-merge": "^5.2.0"
-  },
-  "dependencies": {
-    "prop-types": "^15.6.2",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "styled-components": "^3.4.5"
-  },
-  "scripts": {
-    "dev": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack-dev-server --config build/webpack.dev.config.ts",
-    "build:lib": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack --config build/webpack.prod.config.ts",
-    "build:demo": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack --config build/webpack.demo.config.ts",
-    "prepublish": "npm run build:lib",
-    "deploy": "sh ./deploy.sh"
+    "webpack-merge": "^5.2.0",
+    "react-dom": "^16.14.0"
   }
 }

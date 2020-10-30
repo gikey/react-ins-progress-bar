@@ -36,7 +36,7 @@ class InsProgressBar extends Component<
 
         const { 
             height = '5px', 
-            delay = 500,
+            delay = 300,
             position = "top"
         } = props;
 
