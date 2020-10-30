@@ -17,7 +17,7 @@ npm install react-ins-progress-bar --save
 To include this project you need to require the module by using CommonJS syntax or ES6 Modules Syntax (recommended).
 
 ```javascript
-import { InsProgressBar, insProgress } from 'react-ins-progress-bar'
+import { InsProgressBar, insProgress } from 'react-ins-progress-bar';
 ```
 
 render the InsProgressBar component in the higher DOM node possible, such as:
@@ -45,7 +45,7 @@ The <InsProgressBar /> component can receive some properties
 
 #### Supported properties:
 
-* `height` progress bar height
+* `height` progress bar height (default 5px)
 * `delay` progress bar fadeOut time (default 300ms) 
 * `position` progress bar position (top or bottom)
 
@@ -53,9 +53,9 @@ The <InsProgressBar /> component can receive some properties
 
 ```javascript
 <InsProgressBar 
-    height={'10px'} 
+    height="10px"
     delay={200} 
-    position={insProgress.POSITION.TOP}
+    position="top"
 />
 ```
 
@@ -66,7 +66,7 @@ The `insProgress.start()` supports height, colors attributes in the following wa
 ```javascript
 insProgress.start({
     'height': '10px',
-    'position': insProgress.POSITION.TOP,
+    'position': 'bottom'
 })
 insProgress.finish({
     'delay': 100
