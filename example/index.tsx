@@ -5,24 +5,28 @@ import { Title } from "./style";
 import Switch from "./components/switch";
 
 class App extends Component {
-    componentWillMount() {
+    componentDidMount() {
         insProgress.start();
     }
-    handleStartProgress() {
-        insProgress.start();
+
+    handleChange = (checked: boolean) => {
+        if (checked) {
+            insProgress.start({
+                height: '5px',
+                position: 'top'
+            });
+        } else {
+            insProgress.finish();
+        }
     }
-    handleStopProgress() {
-        insProgress.finish();
-    }
+
     render() {
         return (
             <div className="container">
                 <InsProgressBar />
                 <Title>react-ins-progress-bar</Title>
-                
                 <Switch
-                    handleStartProgress={this.handleStartProgress.bind(this)}
-                    handleStopProgress={this.handleStopProgress.bind(this)}
+                    onChange={this.handleChange}
                 />
                 <a className="github" href="https://github.com/gikey/react-ins-progress-bar/">
                 <img src={require("./github.svg")} alt=""/></a>

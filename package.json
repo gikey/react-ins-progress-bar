@@ -1,40 +1,10 @@
 {
   "name": "react-ins-progress-bar",
-  "version": "1.2.3",
+  "version": "2.0.0",
+  "author": "",
+  "license": "ISC",
   "description": "",
   "main": "./dist/react-ins-progress-bar.js",
-  "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
-    "autoprefixer": "^9.1.5",
-    "babel-loader": "^8.0.2",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "css-loader": "^1.0.0",
-    "html-webpack-plugin": "^3.2.0",
-    "node-sass": "^4.9.3",
-    "postcss-import": "^12.0.0",
-    "postcss-loader": "^3.0.0",
-    "postcss-url": "^8.0.0",
-    "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.0",
-    "url-loader": "^1.1.1",
-    "webpack": "^4.17.2",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.8"
-  },
-  "dependencies": {
-    "prop-types": "^15.6.2",
-    "react": "^16.5.0",
-    "react-dom": "^16.5.0",
-    "styled-components": "^3.4.5"
-  },
-  "scripts": {
-    "dev": "webpack-dev-server --process --inline --config build/webpack.dev.conf.js",
-    "build": "webpack --config build/webpack.prod.conf.js",
-    "build:demo": "webpack --config build/webpack.demo.conf.js",
-    "deploy": "sh ./deploy.sh"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gikey/react-ins-progress-bar.git"
@@ -44,10 +14,61 @@
     "react",
     "ins-react-progressbar-bar"
   ],
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/gikey/react-ins-progress-bar/issues"
   },
-  "homepage": "https://github.com/gikey/react-ins-progress-bar#readme"
+  "files": [
+    "dist",
+    "types"
+  ],
+  "homepage": "https://github.com/gikey/react-ins-progress-bar#readme",
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "@types/html-webpack-plugin": "^3.2.4",
+    "@types/node": "^14.14.6",
+    "@types/react": "^16.9.55",
+    "@types/react-dom": "^16.9.9",
+    "@types/webpack": "^4.41.24",
+    "@types/webpack-dev-server": "^3.11.1",
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "@typescript-eslint/parser": "^4.6.0",
+    "autoprefixer": "^9.8.6",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "cross-env": "^7.0.2",
+    "css-loader": "^1.0.0",
+    "eslint": "^7.12.1",
+    "eslint-plugin-react": "^7.21.5",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.14.1",
+    "postcss-import": "^12.0.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-url": "^8.0.0",
+    "sass-loader": "^7.3.1",
+    "style-loader": "^0.23.0",
+    "ts-loader": "^8.0.7",
+    "ts-node": "^9.0.0",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.0.5",
+    "url-loader": "^1.1.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.2.0"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "styled-components": "^3.4.5"
+  },
+  "scripts": {
+    "dev": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack-dev-server --config build/webpack.dev.config.ts",
+    "build:lib": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack --config build/webpack.prod.config.ts",
+    "build:demo": "cross-env TS_NODE_PROJECT=\"tsconfig-for-webpack-config.json\" webpack --config build/webpack.demo.config.ts",
+    "prepublish": "npm run build:lib",
+    "deploy": "sh ./deploy.sh"
+  }
 }

@@ -1,20 +1,29 @@
 import React, { Component } from "react";
 import "./style.css";
 
-class Switch extends Component {
-    constructor(props) {
+interface ISwitchProps {
+    onChange: (checked: boolean) => void;
+}
+
+interface ISwitchState {
+    checked: boolean;
+}
+
+class Switch extends Component<ISwitchProps, ISwitchState> {
+    constructor(props: ISwitchProps) {
         super(props);
         this.state = {
-            isChecked: true
+            checked: true
         };
-        this.handleChange = this.handleChange.bind(this);
     }
-    handleChange() {
-        this.state.isChecked
-            ? this.props.handleStopProgress()
-            : this.props.handleStartProgress();
-        this.setState({ isChecked: !this.state.isChecked });
+
+    handleChange = () => {
+        const { checked } = this.state;
+        this.setState({ checked: !checked }, () => {
+            this.props.onChange(!checked);
+        });
     }
+
     render() {
         return (
             <div className="btn">
@@ -23,18 +32,18 @@ class Switch extends Component {
                     
                     <input
                         type="checkbox"
-                        checked={this.state.isChecked}
+                        checked={this.state.checked}
                         onChange={this.handleChange}
                     />
                     <div className="slider">
-                        {this.state.isChecked ? (
+                        {this.state.checked ? (
                             <p className="l-info">Loading</p>
                         ) : (
                             <p className="r-info">Finished</p>
                         )}
                     </div>
                 </label>
-                {this.state.isChecked ? <p className="state">to start</p> : <p className="state">to finish</p>
+                {this.state.checked ? <p className="state">to start</p> : <p className="state">to finish</p>
                 }
                 
             </div>
