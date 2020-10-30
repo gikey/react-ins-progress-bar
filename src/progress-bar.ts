@@ -1,21 +1,21 @@
-import {
-    ACTION,
-    POSITION
-} from './utils/constant'
-import eventManager from './utils/eventManager'
+import { ACTION } from './utils/constant';
+import eventManager from './utils/eventManager';
+import InsProgressBar, { IInsProgressStart, IInsProgressFinish } from './components/InsProgressBar';
 
-let progressBar = null,
+let progressBar: InsProgressBar | null,
     state = 'noop',
-    cacheStartFn,
-    cacheFinishFn
+    cacheStartFn: () => void,
+    cacheFinishFn: () => void;
 
-function emitEvent(action, options) {
+function emitEvent(action: ACTION, options: Partial<IInsProgressStart & IInsProgressFinish>) {
     if(!progressBar) {
         if(action === ACTION.SHOW) {
-            return cacheStartFn = (options =>  () => insProgress.start(options))(options)
+            cacheStartFn = (options =>  () => insProgress.start(options))(options);
+            return;
         }
         state = 'pending'
-        return cacheFinishFn = (options =>  () => insProgress.finish(options))(options)
+        cacheFinishFn = (options =>  () => insProgress.finish(options))(options);
+        return;
     }
     eventManager.emit(action, options)
 
@@ -34,8 +34,7 @@ const insProgress = Object.assign(
         },
         finish(options = {}) {
             emitEvent(ACTION.CLEAR, options)
-        },
-        POSITION
+        }
     }
 )
 
