@@ -1,12 +1,16 @@
 import { Component, HTMLAttributes } from "react";
 
-export interface IInsProgressStart {
-    position: Position;
-    height: string | number;
+type Position = "top" | "bottom";
+
+interface IInsProgressStart {
+    position?: Position;
+    height?: string;
+    duration?: number;
+    colors?: string;
 }
 
-export interface IInsProgressFinish {
-    delay: number;
+interface IInsProgressFinish {
+    delay?: number;
 }
 
 export type InsProgressBarProps = HTMLAttributes<HTMLDivElement> & Partial<

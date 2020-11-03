@@ -1,24 +1,25 @@
 import React, { Component, HTMLAttributes } from "react";
 import eventManager from "../utils/eventManager";
 import { ACTION } from "../utils/constant";
-import { classnames } from '../utils/classnames';
+import { classnames } from "../utils/classnames";
 import { ProgressBar } from "./style";
 
 export type Position = "top" | "bottom";
 
 export interface IInsProgressStart {
-    position: Position;
-    height: string | number;
+    position?: Position;
+    height?: string;
+    duration?: number;
+    colors?: string;
 }
 
 export interface IInsProgressFinish {
-    delay: number;
+    delay?: number;
 }
 
-export type InsProgressBarProps = HTMLAttributes<HTMLDivElement> & Partial<
+export type InsProgressBarProps = HTMLAttributes<HTMLDivElement> &
     IInsProgressStart &
-    IInsProgressFinish
->
+    IInsProgressFinish;
 
 export interface IInsProgressBarState
     extends IInsProgressStart,
@@ -34,18 +35,22 @@ class InsProgressBar extends Component<
     constructor(props: InsProgressBarProps) {
         super(props);
 
-        const { 
-            height = '5px', 
+        const {
+            height = "5px",
             delay = 300,
-            position = "top"
+            position = "top",
+            duration = 3000,
+            colors = "",
         } = props;
 
         this.state = {
             height,
             delay,
             position,
+            duration,
             fadeOut: false,
             display: false,
+            colors,
         };
     }
 
@@ -64,24 +69,20 @@ class InsProgressBar extends Component<
     }
 
     render() {
-
+        const { position, ...extra } = this.state;
         return (
-            <div className={classnames(
-                this.props.className,
-                "ins-progress-bar"
-            )}>
+            <div
+                className={classnames(this.props.className, "ins-progress-bar")}
+            >
                 <ProgressBar
-                    height={this.state.height}
-                    display={this.state.display}
-                    fadeOut={this.state.fadeOut}
-                    delay={this.state.delay}
-                    className={this.state.position}
+                    {...(extra as Required<IInsProgressBarState>)}
+                    className={position}
                 />
             </div>
         );
     }
 
-    show(options: IInsProgressStart) {
+    show(options: IInsProgressStart = {}) {
         this.setState({
             ...options,
             display: true,
@@ -89,7 +90,7 @@ class InsProgressBar extends Component<
         });
     }
 
-    hide(options: IInsProgressFinish) {
+    hide(options: IInsProgressFinish = {}) {
         this.setState({
             ...options,
             fadeOut: true,

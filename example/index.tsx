@@ -13,7 +13,8 @@ class App extends Component {
         if (checked) {
             insProgress.start({
                 height: '5px',
-                position: 'top'
+                position: 'top',
+                duration: 3000,
             });
         } else {
             insProgress.finish();

@@ -22,14 +22,30 @@ export interface IProgressBarProps {
     fadeOut: boolean;
     display: boolean;
     delay: number;
+    duration: number;
+    colors?: string;
 }
 
-const styledDiv: StyledFunction<IProgressBarProps & React.HTMLProps<HTMLDivElement>> = styled.div;
+const styledDiv: StyledFunction<
+    IProgressBarProps & React.HTMLProps<HTMLDivElement>
+> = styled.div;
+
+const defaultColors = `
+    #1abc9c 15%,
+    #2ecc71 15%,
+    #3498db 12%,
+    #9b59b6 32%,
+    #34495e 35%,
+    #f1c40f 55%,
+    #e67e22 59%,
+    #e74c3c 63%,
+    #95a5a6 92%
+`;
 
 export const ProgressBar = styledDiv`
     opacity: ${(props) => (props.fadeOut ? 0 : 1)};
     transition: opacity ${(props) => props.delay / 1000}s ease-in;
-    display: ${(props) => props.display ? 'block' : 'none'};
+    display: ${(props) => (props.display ? "block" : "none")};
     height: ${(props) => props.height};
     position: fixed;
     z-index: 99;
@@ -37,19 +53,12 @@ export const ProgressBar = styledDiv`
     right: 0;
     background: linear-gradient(
         90deg,
-        #1abc9c 15%,
-        #2ecc71 15%,
-        #3498db 12%,
-        #9b59b6 32%,
-        #34495e 35%,
-        #f1c40f 55%,
-        #e67e22 59%,
-        #e74c3c 63%,
-        #95a5a6 92%
+        ${(props) => props.colors || defaultColors}
     );
     background-size: 200%;
     transform-origin: left;
-    animation: ${moveGradient} 3s linear infinite, ${MoveEnter} 0.3s   ease-in;
+    animation: ${moveGradient} ${(props) =>
+    props.duration / 1000}s linear infinite, ${MoveEnter} 0.3s   ease-in;
     &.top {
         top: 0;
     }
