@@ -1,0 +1,88 @@
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  width: 100%;
+}
+.btn {
+    vertical-align: middle;
+    font-size: 25px;
+    margin: 40px auto 80px;
+    font-weight: 300;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 90px;
+    height: 30px;
+    outline: none;
+    margin: 0 10px;
+    vertical-align: middle;
+  }
+  .btn .state {
+      width: 100px;
+      display: inline-block;
+      text-align: left;
+  }
+  .switch input {
+    position: absolute;
+    top: -99999px;
+    left: -99999px;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 30px;
+    font-size: 12px;
+    line-height: 30px;
+  }
+  .slider > .l-info,
+  .slider > .r-info {
+      margin: 0 12px;
+      color: white;
+      font-style: italic;
+  }
+  .slider > .l-info {
+      text-align: left;
+  }
+  .slider > .r-info {
+    text-align: right;
+}
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 24px;
+    width: 24px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  input[type="checkbox"]:checked + .slider {
+    background-color: #2196F3;
+  }
+  input[type="checkbox"]:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  input[type="checkbox"]:checked + .slider:before {
+    -webkit-transform: translateX(56px);
+    -ms-transform: translateX(56px);
+    transform: translateX(56px);
+  }
+
+  .github {
+    
+  }
