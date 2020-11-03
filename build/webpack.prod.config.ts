@@ -5,7 +5,7 @@ import baseConfig from "./webpack.base.config";
 
 const config: webpack.Configuration = merge(baseConfig, {
     mode: "production",
-    entry: "./src/index.tsx",
+    entry: "./src/index.ts",
     output: {
         path: path.resolve(__dirname, "../dist"),
         filename: "react-ins-progress-bar.js",

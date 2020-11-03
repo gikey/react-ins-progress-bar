@@ -30,7 +30,6 @@
     "types"
   ],
   "homepage": "https://github.com/gikey/react-ins-progress-bar#readme",
-  "type": "module",
   "dependencies": {
     "react": "^16.14.0",
     "styled-components": "^3.4.5"
