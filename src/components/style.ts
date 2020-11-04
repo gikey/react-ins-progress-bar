@@ -1,4 +1,4 @@
-import styled, { keyframes, StyledFunction } from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const moveGradient = keyframes`
     0% {
@@ -18,17 +18,13 @@ const MoveEnter = keyframes`
     }
 `;
 
-export interface IProgressBarProps {
+export interface IProgressBarProps extends React.HTMLProps<HTMLDivElement> {
     fadeOut: boolean;
     visible: boolean;
     delay: number;
     duration: number;
     colors?: string;
 }
-
-const styledDiv: StyledFunction<
-    IProgressBarProps & React.HTMLProps<HTMLDivElement>
-> = styled.div;
 
 const defaultColors = `
     #1abc9c 15%,
@@ -42,7 +38,7 @@ const defaultColors = `
     #95a5a6 92%
 `;
 
-export const ProgressBar = styledDiv`
+export const ProgressBar = styled.div<IProgressBarProps>`
     opacity: ${(props) => (props.fadeOut ? 0 : 1)};
     transition: opacity ${(props) => props.delay / 1000}s ease-in;
     display: ${(props) => (props.visible ? "block" : "none")};
@@ -57,8 +53,9 @@ export const ProgressBar = styledDiv`
     );
     background-size: 200%;
     transform-origin: left;
-    animation: ${moveGradient} ${(props) =>
-    props.duration / 1000}s linear infinite, ${MoveEnter} 0.3s   ease-in;
+    animation: ${moveGradient} ${(props) => props.duration / 1000}s linear
+            infinite,
+        ${MoveEnter} 0.3s ease-in;
     &.top {
         top: 0;
     }
