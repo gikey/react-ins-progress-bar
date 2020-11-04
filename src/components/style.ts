@@ -20,7 +20,7 @@ const MoveEnter = keyframes`
 
 export interface IProgressBarProps {
     fadeOut: boolean;
-    display: boolean;
+    visible: boolean;
     delay: number;
     duration: number;
     colors?: string;
@@ -45,7 +45,7 @@ const defaultColors = `
 export const ProgressBar = styledDiv`
     opacity: ${(props) => (props.fadeOut ? 0 : 1)};
     transition: opacity ${(props) => props.delay / 1000}s ease-in;
-    display: ${(props) => (props.display ? "block" : "none")};
+    display: ${(props) => (props.visible ? "block" : "none")};
     height: ${(props) => props.height};
     position: fixed;
     z-index: 99;

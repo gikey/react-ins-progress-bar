@@ -24,7 +24,7 @@ export type InsProgressBarProps = HTMLAttributes<HTMLDivElement> &
 export interface IInsProgressBarState
     extends IInsProgressStart,
         IInsProgressFinish {
-    display: boolean;
+    visible: boolean;
     fadeOut: boolean;
 }
 
@@ -49,7 +49,7 @@ class InsProgressBar extends Component<
             position,
             duration,
             fadeOut: false,
-            display: false,
+            visible: false,
             colors,
         };
     }
@@ -85,7 +85,7 @@ class InsProgressBar extends Component<
     show(options: IInsProgressStart = {}) {
         this.setState({
             ...options,
-            display: true,
+            visible: true,
             fadeOut: false,
         });
     }
@@ -98,7 +98,7 @@ class InsProgressBar extends Component<
 
         setTimeout(() => {
             this.setState({
-                display: false,
+                visible: false,
             });
         }, options.delay || this.state.delay);
     }
