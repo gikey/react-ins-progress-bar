@@ -13,14 +13,14 @@ interface IInsProgressFinish {
     delay?: number;
 }
 
-export type InsProgressBarProps = HTMLAttributes<HTMLDivElement> & Partial<
+type InsProgressBarProps = 
+    HTMLAttributes<HTMLDivElement> &
     IInsProgressStart &
-    IInsProgressFinish
->
+    IInsProgressFinish;
 
 declare class InsProgressBar extends Component<InsProgressBarProps> {}
 
 declare const insProgress: {
-    show(options: IInsProgressStart): void;
+    start(options: IInsProgressStart): void;
     finish(options: IInsProgressFinish): void;
 }
