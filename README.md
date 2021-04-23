@@ -78,7 +78,7 @@ The <InsProgressBar /> component can receive some properties
 />
 ```
 
-The `insProgress.start()` supported properties are the same as `<InsProgressBar />` except `delay` property , `insProgress.finish()` support `delay` property.
+The `insProgress.start()` supported properties are the same as `<InsProgressBar />` except `delay` property , `insProgress.finish()` support `delay` properties.
 
 ##### example
 

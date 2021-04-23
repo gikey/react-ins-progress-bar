@@ -4,6 +4,8 @@
 
 一个类似 instagram 风格的进度条
 
+![](https://img.shields.io/npm/v/react-ins-progress-bar?style=flat-square)
+![](https://img.shields.io/npm/dm/react-ins-progress-bar?style=flat-square)
 ## 示例
 
 [在线示例](https://gikey.github.io/react-ins-progress-bar/)
