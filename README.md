@@ -1,8 +1,12 @@
 # react-ins-progress-bar
 
+
 English | [简体中文](./docs/zh-CN.md)
 
 An instagram style progress bar 
+
+![](https://img.shields.io/npm/v/react-ins-progress-bar?style=flat-square)
+![](https://img.shields.io/npm/dm/react-ins-progress-bar?style=flat-square)
 
 ## Demo
 
