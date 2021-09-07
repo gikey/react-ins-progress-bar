@@ -21,6 +21,6 @@ type InsProgressBarProps =
 declare class InsProgressBar extends Component<InsProgressBarProps> {}
 
 declare const insProgress: {
-    start(options: IInsProgressStart): void;
-    finish(options: IInsProgressFinish): void;
+    start(options?: IInsProgressStart): void;
+    finish(options?: IInsProgressFinish): void;
 }

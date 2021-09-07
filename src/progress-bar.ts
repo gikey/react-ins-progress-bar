@@ -40,11 +40,11 @@ function emitEvent(
 const insProgress = Object.assign(
     (options = {}) => eventManager.emit(ACTION.SHOW, options),
     {
-        start(options: IInsProgressStart = {}) {
-            emitEvent(ACTION.SHOW, options);
+        start(options?: IInsProgressStart) {
+            emitEvent(ACTION.SHOW, options || {});
         },
-        finish(options: IInsProgressFinish = {}) {
-            emitEvent(ACTION.CLEAR, options);
+        finish(options?: IInsProgressFinish) {
+            emitEvent(ACTION.CLEAR, options || {});
         },
     }
 );
